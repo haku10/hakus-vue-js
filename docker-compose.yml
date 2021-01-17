@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  vue-js-app:
+    build: .
+    ports:
+      - "9111:8080"
+    volumes:
+      - .:/my-app:cached
+      - node_modules_volume:/my-app/node_modules
+    tty: true
+    stdin_open: true
+volumes:
+  node_modules_volume:
+    name: vue_js_node_modules
